@@ -1,14 +1,27 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+<div>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+</div>
+
+<ion-content no-padding class="radial-background">
+
+<ion-card (tap)="goRenunganBaca()">
+  <img src="assets/imgs/daily-bible-header.jpg"/>
+  <div class="card-title">Renungan Harian
+      
+  </div>
+  <div class="card-subtitle"></div>
+</ion-card>
+
+<ion-card (tap)="goRenunganBaca()">
+    <img src="assets/imgs/headphones.jpg"/>
+    <div class="card-title">Renungan Audio</div>
+    <div class="card-subtitle"></div>
+  </ion-card>
+
+  <ion-card (tap)="goRenunganBaca()">
+      <img src="assets/imgs/wheat.jpg"/>
+      <div class="card-title">Renungan Video</div>
+      <div class="card-subtitle"></div>
+    </ion-card>
+ 
 </ion-content>

@@ -1,0 +1,16 @@
+<ion-header color="light">
+
+  <ion-navbar>
+    <ion-title >Renungan</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="radial-background">
+
+  <ion-card *ngFor="let post of posts" (tap)="goRenunganBacaDetails()" >
+    <img [src]="post._embedded['wp:featuredmedia'][0].source_url" />
+  </ion-card>
+
+</ion-content>

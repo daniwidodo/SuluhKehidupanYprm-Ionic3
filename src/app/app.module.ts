@@ -6,6 +6,12 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { RestApiProvider } from '../providers/rest-api/rest-api';
+import { RenunganBacaPageModule } from '../pages/renungan-baca/renungan-baca.module';
+import { RenunganAudioPageModule } from '../pages/renungan-audio/renungan-audio.module';
+import { RenunganBacaDetailsPageModule } from '../pages/renungan-baca-details/renungan-baca-details.module';
+import { RenunganVideoPageModule } from '../pages/renungan-video/renungan-video.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,17 +20,24 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    HttpClientModule,
+    IonicModule.forRoot(MyApp),
+    RenunganBacaPageModule,
+    RenunganAudioPageModule,
+    RenunganBacaDetailsPageModule,
+    RenunganVideoPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    RestApiProvider
   ]
 })
 export class AppModule {}
