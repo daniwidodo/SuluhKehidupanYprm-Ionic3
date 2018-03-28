@@ -13,8 +13,8 @@ import { StreamingMedia, StreamingAudioOptions } from '@ionic-native/streaming-m
 export class RenunganAudioPage {
 
   posts: any;
-  index: string;
   audioUrl: any;
+  
   
   constructor(
     public navCtrl: NavController, 
@@ -25,6 +25,8 @@ export class RenunganAudioPage {
 
     //
     this.getAudioList();
+
+    //
   }
 
   ionViewDidLoad() {
@@ -37,22 +39,13 @@ export class RenunganAudioPage {
       });
   }
 
-  audioParse(index) {
-
+  getAudioUrl(){
+    this._api.getAudio().then()
   }
 
-  playAudio(index){
+  playAudio(audioid:string){
+    console.log(audioid)
     
-    var audioUrl = this.posts.acf.audio_url;
-
-    let options: StreamingAudioOptions = {
-      successCallback: () => { console.log('Audio played') },
-      errorCallback: (e) => { console.log('Error streaming') },
-      initFullscreen: true
-    };
-
-
-    this.streaming.playAudio(audioUrl, options);
 
   }
 

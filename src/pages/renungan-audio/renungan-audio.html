@@ -9,7 +9,7 @@
 
 <ion-content padding>
   <ion-list>
-      <ion-item (tap)="playAudio(i)" *ngFor="let post of posts; let i = index ">
+      <ion-item (tap)="playAudio(post.acf.audio_id_url)" *ngFor="let post of posts">
         <ion-icon name="musical-notes" item-start color="primary"></ion-icon>
           {{post.title.rendered}}
         <ion-icon name="arrow-dropright" item-end color="secondary"></ion-icon>
