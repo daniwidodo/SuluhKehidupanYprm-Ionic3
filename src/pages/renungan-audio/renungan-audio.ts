@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { RestApiProvider } from '../../providers/rest-api/rest-api';
+import { StreamingMedia, StreamingAudioOptions } from '@ionic-native/streaming-media';
 
-/**
- * Generated class for the RenunganAudioPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+//
 
 @IonicPage()
 @Component({
@@ -15,11 +12,48 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RenunganAudioPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  posts: any;
+  index: string;
+  audioUrl: any;
+  
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public _api: RestApiProvider,
+    private streaming: StreamingMedia
+  ) {
+
+    //
+    this.getAudioList();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RenunganAudioPage');
+  }
+
+  getAudioList(){
+    this._api.getAudio().then(data => {this.posts = data;
+      console.log(this.posts);
+      });
+  }
+
+  audioParse(index) {
+
+  }
+
+  playAudio(index){
+    
+    var audioUrl = this.posts.acf.audio_url;
+
+    let options: StreamingAudioOptions = {
+      successCallback: () => { console.log('Audio played') },
+      errorCallback: (e) => { console.log('Error streaming') },
+      initFullscreen: true
+    };
+
+
+    this.streaming.playAudio(audioUrl, options);
+
   }
 
 }

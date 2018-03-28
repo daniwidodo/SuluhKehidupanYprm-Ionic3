@@ -13,6 +13,8 @@ import { RenunganBacaDetailsPageModule } from '../pages/renungan-baca-details/re
 import { RenunganVideoPageModule } from '../pages/renungan-video/renungan-video.module';
 import { HttpClientModule } from '@angular/common/http';
 
+import { StreamingMedia } from '@ionic-native/streaming-media';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -37,7 +39,8 @@ import { HttpClientModule } from '@angular/common/http';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    RestApiProvider
+    RestApiProvider,
+    StreamingMedia
   ]
 })
 export class AppModule {}

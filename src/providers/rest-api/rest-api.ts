@@ -15,7 +15,21 @@ private apiUrl = 'http://yprm-online.org/wp-json/wp/v2';
     return new Promise(resolve => {
       this.http.get(this.apiUrl+'/posts?_embed&categories=8&filter[orderby]=rand&filter[posts_per_page]=6')
       .subscribe(data => {resolve(data)})
-    })
+    });
+  }
+
+  async getAudio(){
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl+'/posts?_embed&categories=6&filter[orderby]=rand&filter[posts_per_page]=6')
+      .subscribe(data => {resolve(data)})
+    });
+  }
+
+  async getVideo(){
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl+'/posts?_embed&categories=5&filter[orderby]=rand&filter[posts_per_page]=6')
+      .subscribe(data => {resolve(data)})
+    });
   }
 
 }
