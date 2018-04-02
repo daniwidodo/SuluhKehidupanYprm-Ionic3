@@ -5,7 +5,7 @@
     <author email="dani.widodo87@gmail.com" href="http://wisdomstudioasia.com">Wisdom Studio Asia</author>
     <content src="index.html" />
     <access origin="*" />
-    <preference name="YouTubeDataApiKey" value="[YOUR YOUTUBE API]" />
+    <preference name="YouTubeDataApiKey" value="AIzaSyArEBFKW7duVGPO4qavvP8qc5m7W2_donc" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -82,7 +82,6 @@
     <plugin name="cordova-plugin-splashscreen" spec="^5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
-    <plugin name="cordova-plugin-fcm" spec="^2.1.2" />
     <plugin name="cordova-plugin-x-socialsharing" spec="^5.3.2" />
     <plugin name="com.hutchind.cordova.plugins.streamingmedia" spec="~0.1.4" />
     <plugin name="cordova-plugin-youtube-video-player" spec="^1.0.6" />
