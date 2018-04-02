@@ -33,11 +33,11 @@ export class RenunganBacaPage {
   getPostList(){
     this._api.getPosts().then(data => {this.posts = data;
     console.log(this.posts);
-    })
+    });
   }
 
-  goRenunganBacaDetails(){
-    this.navCtrl.push(RenunganBacaDetailsPage)
+  goRenunganBacaDetails(post){
+    this.navCtrl.push(RenunganBacaDetailsPage, {'post': post});
   }
 
 }

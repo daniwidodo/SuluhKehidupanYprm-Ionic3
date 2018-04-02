@@ -1,5 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+
 
 @Injectable()
 export class RestApiProvider {
@@ -7,7 +10,10 @@ export class RestApiProvider {
 posts: any;
 private apiUrl = 'http://yprm-online.org/wp-json/wp/v2';
 
-  constructor(public http: HttpClient) {
+  constructor(
+    public http: HttpClient,
+    
+  ) {
     console.log('Hello RestApiProvider Provider');
   }
 
@@ -15,7 +21,22 @@ private apiUrl = 'http://yprm-online.org/wp-json/wp/v2';
     return new Promise(resolve => {
       this.http.get(this.apiUrl+'/posts?_embed&categories=8&filter[orderby]=rand&filter[posts_per_page]=6')
       .subscribe(data => {resolve(data)})
-    })
+    });
   }
+
+  async getAudio(){
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl+'/posts?_embed&categories=6&filter[orderby]=rand&filter[posts_per_page]=6')
+      .subscribe(data => {resolve(data)})
+    });
+  }
+
+  async getVideo(){
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl+'/posts?_embed&categories=5&filter[orderby]=rand&filter[posts_per_page]=6')
+      .subscribe(data => {resolve(data)})
+    });
+  }
+
 
 }

@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the RenunganVideoPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { RestApiProvider } from '../../providers/rest-api/rest-api';
 
 @IonicPage()
 @Component({
@@ -15,11 +9,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RenunganVideoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  posts: any;
+
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public _api: RestApiProvider
+  ) {
+
+    //
+    this.getVideoList()
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RenunganVideoPage');
+  }
+
+  getVideoList(){
+    this._api.getVideo().then(data => {this.posts = data;
+      console.log(this.posts);
+      });
   }
 
 }
