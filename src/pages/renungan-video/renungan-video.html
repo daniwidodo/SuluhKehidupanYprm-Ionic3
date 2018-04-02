@@ -10,7 +10,7 @@
 
 <ion-content padding>
 
-  <ion-card *ngFor="let post of posts" >
+  <ion-card *ngFor="let post of posts" (click)="playYoutubeVideo(post.acf.Youtube_id_url)" >
     <img [src]="post._embedded['wp:featuredmedia'][0].source_url" />
   </ion-card>
 

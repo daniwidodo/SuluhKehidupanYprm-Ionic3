@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { RestApiProvider } from '../../providers/rest-api/rest-api';
+import { StreamingMedia, StreamingAudioOptions } from '@ionic-native/streaming-media';
 
 
 @IonicPage()
@@ -18,7 +19,8 @@ export class RenunganAudioPage{
     constructor(
         public navCtrl: NavController, 
         public navParams: NavParams,
-        public _api: RestApiProvider
+        public _api: RestApiProvider,
+        private streaming: StreamingMedia
       ) {
       }
 
@@ -38,7 +40,18 @@ export class RenunganAudioPage{
       }
 
       playAudio(audioId: string){
-          console.log(audioId)
+
+          let options: StreamingAudioOptions = {
+              successCallback: () => {console.log('Audio Played !!!')},
+              errorCallback: () => {console.log('Error sedang terjadi!!') },
+              initFullscreen: true
+          };
+
+          let _audioId = audioId;
+
+          this.streaming.playAudio(_audioId, options);
+
+          console.log(_audioId)
       }
 
 

@@ -14,6 +14,7 @@ import { RenunganVideoPageModule } from '../pages/renungan-video/renungan-video.
 import { HttpClientModule } from '@angular/common/http';
 
 import { StreamingMedia } from '@ionic-native/streaming-media';
+import { YoutubeVideoPlayer } from '@ionic-native/youtube-video-player'
 
 @NgModule({
   declarations: [
@@ -40,7 +41,9 @@ import { StreamingMedia } from '@ionic-native/streaming-media';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     RestApiProvider,
-    StreamingMedia
+    StreamingMedia,
+    YoutubeVideoPlayer
+    
   ]
 })
 export class AppModule {}
